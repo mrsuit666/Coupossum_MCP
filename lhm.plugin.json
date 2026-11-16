@@ -1,0 +1,157 @@
+{
+  "identifier": "mrsuit666-coupossum_mcp",
+  "name": "Coupossum",
+  "version": "0.2.4",
+  "description": "Search current coupon codes, deals and products on sale from thousands of online stores. Built on Feedico data. It is not an official Feedico server.",
+  "author": "Coupossum",
+  "authorUrl": "https://coupossum.com",
+  "homepage": "https://coupossum.com",
+  "cloudEndpoint": "https://coupossum.com/mcp",
+  "icon": "https://coupossum.com/static/icon-512.png",
+  "category": "lifestyle",
+  "tags": [
+    "coupons",
+    "deals",
+    "discounts",
+    "shopping",
+    "ecommerce",
+    "products",
+    "sales"
+  ],
+  "tools": [
+    {
+      "name": "search_coupons",
+      "title": "Search coupon codes and deals",
+      "description": "Find current coupon codes and deals (offers without a code, e.g. free shipping) by keyword and/or store name, optionally for one country. A keyword also matches store names, so \"vpn\" finds NordVPN. Returns up to 10 active offers (at most 3 per store unless a store is given) with code (or none), end date, countries and links, and says when there are more. Covers coupon codes and deals, not individual products on sale.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "query": {
+            "description": "Keyword, e.g. \"shoes\" or \"free shipping\"",
+            "type": "string",
+            "maxLength": 100
+          },
+          "store": {
+            "description": "Store name or domain, e.g. \"example.com\"",
+            "type": "string",
+            "maxLength": 100
+          },
+          "country": {
+            "description": "ISO country code, e.g. CH or US. Returns offers for that country plus worldwide ones.",
+            "type": "string",
+            "pattern": "^[A-Za-z]{2}$"
+          }
+        }
+      },
+      "annotations": {
+        "title": "Search coupon codes and deals",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "search_stores",
+      "title": "Search stores",
+      "description": "Find stores by name or domain. Returns up to 10 stores with their number of current offers and links, and says when there are more.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "description": "Store name or domain"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      },
+      "annotations": {
+        "title": "Search stores",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_store_offers",
+      "title": "Get a store's current offers",
+      "description": "List one store's current coupon codes and deals, soonest ending first, optionally for one country. Returns up to 10 offers with code (or none), end date, countries and links, plus the store's total number of offers and a link to all of them on Coupossum.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "store": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "description": "Store name, domain or Coupossum store slug"
+          },
+          "country": {
+            "description": "ISO country code, e.g. CH or US. Returns offers for that country plus worldwide ones.",
+            "type": "string",
+            "pattern": "^[A-Za-z]{2}$"
+          }
+        },
+        "required": [
+          "store"
+        ]
+      },
+      "annotations": {
+        "title": "Get a store's current offers",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "search_products",
+      "title": "Search products on sale",
+      "description": "Find individual products currently on sale by keyword, optionally with a maximum price, currency and country. Returns up to 10 products with sale price, regular price, ship-to countries and links, and says when there are more. Covers products on sale, not coupon codes.",
+      "inputSchema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "description": "Product keywords, e.g. \"running shoes\""
+          },
+          "max_price": {
+            "description": "Maximum price",
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "currency": {
+            "description": "ISO currency, e.g. USD, EUR, CHF",
+            "type": "string",
+            "pattern": "^[A-Za-z]{3}$"
+          },
+          "country": {
+            "description": "ISO country code, e.g. CH or US. Returns offers for that country plus worldwide ones.",
+            "type": "string",
+            "pattern": "^[A-Za-z]{2}$"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      },
+      "annotations": {
+        "title": "Search products on sale",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    }
+  ]
+}
