@@ -1,4 +1,5 @@
 <p align="center"><img src="logo.png" alt="Coupossum" width="120" height="120"></p>
+<p align="center"><a href="https://lobehub.com/mcp/mrsuit666-coupossum_mcp"><img src="https://lobehub.com/badge/mcp/mrsuit666-coupossum_mcp" alt="MCP Badge"></a></p>
 
 # Coupossum MCP server
 
@@ -50,6 +51,15 @@ This repository describes the hosted server; it doesn't contain its source code.
 | `search_products` | Finds products on sale by keyword, maximum price, currency and country | `query`, `max_price`, `currency`, `country` (optional) |
 
 Each call returns at most 10 results. When there are more, the answer says so and links to all of them on coupossum.com.
+
+## Prompts
+
+Ready-made questions you can pick in apps that show MCP prompts:
+
+| Prompt | What it asks | Inputs |
+|---|---|---|
+| `store_coupons` | "Are there any coupon codes or deals for <store> right now?" | `store`, `country` (optional) |
+| `products_on_sale` | "Find <product> on sale under <price>." | `product`, `max_price`, `country` (optional) |
 
 ## Example prompts
 

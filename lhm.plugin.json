@@ -1,7 +1,7 @@
 {
   "identifier": "mrsuit666-coupossum_mcp",
   "name": "Coupossum",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Search current coupon codes, deals and products on sale from thousands of online stores. Built on Feedico data. It is not an official Feedico server.",
   "author": "Coupossum",
   "authorUrl": "https://coupossum.com",
@@ -152,6 +152,47 @@
         "idempotentHint": true,
         "openWorldHint": false
       }
+    }
+  ],
+  "prompts": [
+    {
+      "name": "store_coupons",
+      "title": "Coupon codes for a store",
+      "description": "Ask for the current coupon codes and deals of one store.",
+      "arguments": [
+        {
+          "name": "store",
+          "description": "Store name or domain, e.g. \"Nike\" or \"nike.com\"",
+          "required": true
+        },
+        {
+          "name": "country",
+          "description": "Optional ISO country code, e.g. DE or US",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "products_on_sale",
+      "title": "Products on sale",
+      "description": "Ask for products currently on sale, optionally under a maximum price.",
+      "arguments": [
+        {
+          "name": "product",
+          "description": "What you are looking for, e.g. \"running shoes\"",
+          "required": true
+        },
+        {
+          "name": "max_price",
+          "description": "Optional maximum price, e.g. \"100 EUR\"",
+          "required": false
+        },
+        {
+          "name": "country",
+          "description": "Optional ISO country code, e.g. DE or US",
+          "required": false
+        }
+      ]
     }
   ]
 }

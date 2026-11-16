@@ -3,7 +3,7 @@
   "name": "com.coupossum/coupossum",
   "title": "Coupossum",
   "description": "Coupons and deals from many stores. Built on Feedico data. It is not an official Feedico server.",
-  "version": "0.2.2",
+  "version": "0.2.5",
   "websiteUrl": "https://coupossum.com/ai",
   "icons": [
     {
