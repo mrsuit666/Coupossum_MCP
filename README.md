@@ -23,7 +23,7 @@ This repository describes the hosted server; it doesn't contain its source code.
 
 ## Add it to your assistant
 
-- **Claude** (claude.ai or Claude Desktop): Settings → Connectors → Add custom connector. Name `Coupossum`, URL `https://coupossum.com/mcp`. No OAuth settings are needed.
+- **Claude** (claude.ai or Claude Desktop): Coupossum is listed in [Claude's connector directory](https://claude.ai/directory/coupossum); add it from there. Or by hand: Settings → Connectors → Add custom connector. Name `Coupossum`, URL `https://coupossum.com/mcp`. No OAuth settings are needed.
 - **ChatGPT:** turn on developer mode under Settings → Apps & Connectors → Advanced, then create a connector with the URL `https://coupossum.com/mcp` and no authentication.
 - **Claude Code:**
 
