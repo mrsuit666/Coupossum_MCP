@@ -99,3 +99,5 @@ curl -s https://coupossum.com/mcp \
 ## Contact
 
 Questions or problems: support@coupossum.com
+
+[![Coupossum MCP server](https://mcprush.com/badge/coupossum-mcp/card.svg)](https://mcprush.com/to/coupossum-mcp?ref=badge)
